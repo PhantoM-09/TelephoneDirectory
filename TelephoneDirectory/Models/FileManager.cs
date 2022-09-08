@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Web;
 
 namespace TelephoneDirectory.Models
@@ -31,7 +32,12 @@ namespace TelephoneDirectory.Models
             List<PhoneRecord> phoneRecords;
             using (StreamReader streamReader = new StreamReader(_filePath))
             {
-                phoneRecords = JsonSerializer.Deserialize<List<PhoneRecord>>(streamReader.ReadToEnd());
+                string fileData = streamReader.ReadToEnd();
+                if (!string.IsNullOrEmpty(fileData))
+                    phoneRecords = JsonSerializer.Deserialize<List<PhoneRecord>>(fileData);
+                else
+                    phoneRecords = new List<PhoneRecord>();
+
             }
 
             return phoneRecords;
