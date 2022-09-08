@@ -45,5 +45,10 @@ namespace TelephoneDirectory.Models
             updatedPhoneRecord.LastName = phoneRecord.LastName;
             updatedPhoneRecord.PhoneNumber = phoneRecord.PhoneNumber;
         }
+
+        public static PhoneRecord GetElement(int id)
+        {
+            return phoneRecords.FirstOrDefault(i => i.Id == id);
+        }
     }
 }
