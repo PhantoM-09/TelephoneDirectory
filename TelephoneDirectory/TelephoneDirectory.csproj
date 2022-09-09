@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DictController.cs" />
+    <Compile Include="Controllers\ErrorHandlingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +187,7 @@
     <Content Include="Views\Dict\Add.cshtml" />
     <Content Include="Views\Dict\Update.cshtml" />
     <Content Include="Views\Dict\Delete.cshtml" />
+    <Content Include="Views\ErrorHandling\PageNotFound.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

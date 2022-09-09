@@ -18,6 +18,12 @@ namespace TelephoneDirectory
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Dict", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "404-PageNotFound",
+                url: "{*url}",
+                defaults: new { controller = "ErrorHandling", action = "PageNotFound" }
+                );
         }
     }
 }
