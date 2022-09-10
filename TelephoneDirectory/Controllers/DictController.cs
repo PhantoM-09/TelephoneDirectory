@@ -30,7 +30,7 @@ namespace TelephoneDirectory.Controllers
             PhoneRecordStorage.AddElement(phoneRecord);
             PhoneRecordStorage.SaveCollection();
 
-            return Redirect("/Lab2/Dict/Index");
+            return Redirect("/Dict/Index");
         }
 
         [HttpGet]
@@ -51,7 +51,7 @@ namespace TelephoneDirectory.Controllers
             PhoneRecordStorage.UpdateElement(phoneRecord);
             PhoneRecordStorage.SaveCollection();
 
-            return Redirect("/Lab2/Dict/Index");
+            return Redirect("/Dict/Index");
         }
 
         [HttpGet]
@@ -68,7 +68,7 @@ namespace TelephoneDirectory.Controllers
             PhoneRecordStorage.DeleteElement(id);
             PhoneRecordStorage.SaveCollection();
 
-            return Redirect("/Lab2/Dict/Index");
+            return Redirect("/Dict/Index");
         }
     }
 }

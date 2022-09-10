@@ -8,15 +8,15 @@ namespace TelephoneDirectory.Models
     public class PhoneRecordStorage
     {
         private static List<PhoneRecord> phoneRecords = new List<PhoneRecord>();
-
+        private static PhoneRecordContext context = new PhoneRecordContext();
         public static void SaveCollection()
         {
-            FileManager.WriteInFile(phoneRecords);
+            context.SaveChanges();
         }
 
         public static void LoadCollection()
         {
-            phoneRecords = FileManager.ReadFromFile();
+            phoneRecords = new List<PhoneRecord>(context.Records);
         }
 
         public static List<PhoneRecord> GetCollection()
