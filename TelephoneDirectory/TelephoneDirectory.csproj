@@ -161,7 +161,6 @@
     </Compile>
     <Compile Include="Models\PhoneRecord.cs" />
     <Compile Include="Models\PhoneRecordContext.cs" />
-    <Compile Include="Models\PhoneRecordStInitializer.cs" />
     <Compile Include="Models\PhoneRecordStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

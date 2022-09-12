@@ -7,48 +7,42 @@ namespace TelephoneDirectory.Models
 {
     public class PhoneRecordStorage
     {
-        private static List<PhoneRecord> phoneRecords = new List<PhoneRecord>();
         private static PhoneRecordContext context = new PhoneRecordContext();
         public static void SaveCollection()
         {
             context.SaveChanges();
         }
 
-        public static void LoadCollection()
-        {
-            phoneRecords = new List<PhoneRecord>(context.Records);
-        }
-
         public static List<PhoneRecord> GetCollection()
         {
-            return phoneRecords;
+            return new List<PhoneRecord>(context.Records);
         }
 
         public static void AddElement(PhoneRecord phoneRecord)
         {
-            if (phoneRecords.Count == 0)
+            if (context.Records.Count() == 0)
                 phoneRecord.Id = 1;
             else
-                phoneRecord.Id = phoneRecords[phoneRecords.Count - 1].Id + 1;
+                phoneRecord.Id = context.Records.ElementAt(context.Records.Count() - 1).Id + 1;
 
-            phoneRecords.Add(phoneRecord);
+            context.Records.Add(phoneRecord);
         }
 
         public static void DeleteElement(int idDeleted)
         {
-            phoneRecords.Remove(phoneRecords.FirstOrDefault(i => i.Id == idDeleted));
+            context.Records.Remove(context.Records.FirstOrDefault(i => i.Id == idDeleted));
         }
 
         public static void UpdateElement(PhoneRecord phoneRecord)
         {
-            PhoneRecord updatedPhoneRecord = phoneRecords.FirstOrDefault(i => i.Id == phoneRecord.Id);
+            PhoneRecord updatedPhoneRecord = context.Records.FirstOrDefault(i => i.Id == phoneRecord.Id);
             updatedPhoneRecord.LastName = phoneRecord.LastName;
             updatedPhoneRecord.PhoneNumber = phoneRecord.PhoneNumber;
         }
 
         public static PhoneRecord GetElement(int id)
         {
-            return phoneRecords.FirstOrDefault(i => i.Id == id);
+            return context.Records.FirstOrDefault(i => i.Id == id);
         }
     }
 }

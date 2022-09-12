@@ -14,7 +14,6 @@ namespace TelephoneDirectory
     {
         protected void Application_Start()
         {
-            PhoneRecordStInitializer.CreateStorage();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
